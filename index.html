@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List of cards</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- Vue.js -->	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- Vuex   --> <script src="https://unpkg.com/vuex"></script>
+	<!-- Axios  --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- jsPDF  --> <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+
+</head>
+<body>
+    <div id="vm">
+    	<div class="cards-list">
+    	<div class="cards-card">
+    		<main-card :key="mcKey"
+    			@main-card-refresh="mcKey += 1"
+    			@card-add="addCard"
+    			@list-clear="$store.commit('clear_list')"
+                @pdf-download="downloadPdf">
+            </main-card>
+    	</div>
+    	</div>
+
+    	<div class="cards-list">
+    	<div class="cards-card" v-for="item in list">
+    		<card :key="item.id"
+                :id="item.id"
+                :data="{ date: item.date, dollars: item.dollars, roubles: item.roubles }"
+                @card-close="closeCard">
+            </card>
+    	</div>
+    	</div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

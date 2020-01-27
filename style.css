@@ -1,0 +1,28 @@
+.control-btn-group {
+	float: left;
+}
+
+.control-btn-group .control-btn {
+	background-color: #ccffcc;
+	display: block;
+	width: 150px;
+}
+
+.cards-list {
+	font-size: 15px;
+	background-color: #e6ffff;
+	float: left;
+	margin-left: 50px;
+}
+
+.card-btn {
+	background-color: #65e189;
+}
+
+.cards-card:nth-child(odd) {
+	background-color: #ccffcc;
+}
+
+.cards-card:nth-child(even) {
+	background-color: #ccffff;
+}
